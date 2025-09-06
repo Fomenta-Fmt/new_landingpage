@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
-import { Button } from '@/app/components/ui/button'
-import { TextEffect } from './ui/text-effect'
-import { AnimatedGroup } from './ui/animated-group'
+import { Button } from '@/app/ui/button'
+import { TextEffect } from '@/app/ui/text-effect'
+import { AnimatedGroup } from '@/app/ui/animated-group'
 import { HeroHeader } from './header'
-import HeroBg from './ui/hero-background'
+import HeroBg from '@/app/ui/hero-background'
 
 const transitionVariants = {
     item: {
@@ -30,7 +30,7 @@ export default function HeroSection() {
     return (
         <>
             <HeroHeader />
-            <main className="overflow-hidden">
+            <main className="overflow-hidden mb-24">
                 <div
                     aria-hidden
                     className="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block">
@@ -104,7 +104,7 @@ export default function HeroSection() {
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
                                     <div
                                         key={1}
-                                        className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5">
+                                        className="bg-primary/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5">
                                         <Button
                                             asChild
                                             size="lg"

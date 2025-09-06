@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
-import { Button } from '@/app/components/ui/button'
+import { Button } from '@/app/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
 
