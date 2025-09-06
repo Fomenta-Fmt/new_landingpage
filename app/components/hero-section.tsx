@@ -5,6 +5,7 @@ import { TextEffect } from '@/app/ui/text-effect'
 import { AnimatedGroup } from '@/app/ui/animated-group'
 import { HeroHeader } from './header'
 import HeroBg from '@/app/ui/hero-background'
+import LogoCloud from './logo-cloud'
 
 const transitionVariants = {
     item: {
@@ -30,7 +31,7 @@ export default function HeroSection() {
     return (
         <>
             <HeroHeader />
-            <main className="overflow-hidden mb-16">
+            <main className="overflow-hidden mb-12">
                 <div
                     aria-hidden
                     className="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block">
