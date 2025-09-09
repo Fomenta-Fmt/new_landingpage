@@ -37,16 +37,9 @@ export default function Solution() {
                             aria-hidden
                             className="bg-linear-to-l z-1 to-background absolute inset-0 hidden from-transparent to-55% md:block"></div>
                         <div className="relative rounded-2xl p-2">
-                            {/* <Image
-                                src="/charts.png"
-                                className="hidden rounded-[12px] dark:block"
-                                alt="payments illustration dark"
-                                width={1207}
-                                height={929}
-                            /> */}
                             <Image
                                 src="/rising.svg"
-                                className="hidden md:block rounded-[12px] dark:hidden relative left-[60%] bottom-10 rotate-20"
+                                className="hidden md:block rounded-[12px] relative left-[60%] bottom-10 rotate-20"
                                 alt="Work illustrations by Storyset - storyset.com"
                                 width={420}
                                 height={300}
