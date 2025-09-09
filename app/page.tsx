@@ -6,6 +6,7 @@ import Features from "@/app/components/features";
 import Solution from "@/app/components/solution";
 import HowTo from "@/app/components/how";
 import WhoSection from "@/app/components/who";
+import CallToAction from "@/app/components/cta";
 
 export const metadata: Metadata = {
   title: "Fomenta - Impulsione o financiamento dos seus projetos",
@@ -30,6 +31,7 @@ export default function Home() {
       <Solution />
       <HowTo />
       <WhoSection />
+      <CallToAction />
       <Footer />
     </>
   );
