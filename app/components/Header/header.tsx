@@ -8,9 +8,10 @@ import { cn } from '@/lib/utils'
 
 
 const menuItems = [
-    { name: 'Solução', href: '#link' },
+    { name: 'Benefícios', href: '#link' },
+    { name: 'Serviço', href: '#link' },
     { name: 'Como funciona', href: '#link' },
-    { name: 'Missão', href: '#link' },
+    { name: 'Quem somos', href: '#link' },
 ]
 
 export const HeroHeader = () => {
