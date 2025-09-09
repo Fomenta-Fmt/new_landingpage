@@ -2,7 +2,11 @@ import Link from 'next/link'
 
 const links = [
     {
-        title: 'Solução',
+        title: 'Benefícios',
+        href: '#',
+    },
+    {
+        title: 'Serviço',
         href: '#',
     },
     {
@@ -10,7 +14,7 @@ const links = [
         href: '#',
     },
     {
-        title: 'Missão',
+        title: 'Quem somos',
         href: '#',
     }
 ]
