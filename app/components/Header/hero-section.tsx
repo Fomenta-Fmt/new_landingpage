@@ -5,7 +5,6 @@ import { TextEffect } from '@/app/ui/text-effect'
 import { AnimatedGroup } from '@/app/ui/animated-group'
 import { HeroHeader } from './header'
 import HeroBg from '@/app/ui/hero-background'
-import LogoCloud from '../logo-cloud'
 
 const transitionVariants = {
     item: {
@@ -121,7 +120,7 @@ export default function HeroSection() {
                                         size="lg"
                                         variant="ghost"
                                         className="h-10.5 rounded-xl px-5">
-                                        <Link href="#link">
+                                        <Link href="/indicacao">
                                             <span className="text-nowrap">Recomendar</span>
                                         </Link>
                                     </Button>
