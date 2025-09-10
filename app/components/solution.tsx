@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Solution() {
     return (
-        <section className="py-16 md:py-32">
+        <section className="py-16 md:py-32" id='solution'>
             <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
                 <h2 className="relative z-10 max-w-xl text-4xl font-medium lg:text-5xl">Newsletter semanal de oportunidades.</h2>
                 <div className="relative">

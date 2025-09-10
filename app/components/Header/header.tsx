@@ -8,10 +8,10 @@ import { cn } from '@/lib/utils'
 
 
 const menuItems = [
-    { name: 'Benefícios', href: '#link' },
-    { name: 'Serviço', href: '#link' },
-    { name: 'Como funciona', href: '#link' },
-    { name: 'Quem somos', href: '#link' },
+    { name: 'Benefícios', href: '#features' },
+    { name: 'Serviço', href: '#solution' },
+    { name: 'Como funciona', href: '#howTo' },
+    { name: 'Quem somos', href: '#whoSection' },
 ]
 
 export const HeroHeader = () => {
