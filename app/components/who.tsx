@@ -9,7 +9,7 @@ export default function WhoSection() {
                     <span className="text-caption -ml-6 -mt-3.5 block w-max bg-background px-6 dark:bg-gray-950">Quem somos</span>
                     <div className="mt-12 gap-4 sm:grid sm:grid-cols-2 md:mt-24">
                         <div className="sm:w-2/5">
-                            <h2 className="text-3xl font-bold sm:text-4xl">Fomentamos projetos e pesquisas</h2>
+                            <h2 className="text-3xl font-bold sm:text-4xl">Conectamos pesquisadores ao fomento</h2>
                         </div>
                         <div className="mt-6 sm:mt-0">
                             <p className='mb-3'>Somos uma solução desenvolvida para <span className='text-secondary'>fortalecer</span> a produção científica, <span className='text-secondary'>potencializar</span> projetos e <span className='text-secondary'>conectar</span> talentos.</p>
