@@ -7,55 +7,62 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Footer from './components/Footer/footer'
 import Script from 'next/script'
-import { useEffect, useRef } from 'react'
+import { FormEvent } from 'react'
 import { Toaster } from '@/app/ui/sonner'
 import { toast } from 'sonner'
 
 export default function Indicacao() {
-    useEffect(() => {
-        const mcSuccessNode = document.getElementById('mce-success-response');
-        const mcErrorNode = document.getElementById('mce-error-response');
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        // const url = form.action.replace('/post?', '/post-json?');
+        const url = form.action
 
-        const observer = new MutationObserver((mutationsList) => {
-            for (const mutation of mutationsList) {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-                    const target = mutation.target as HTMLElement;
+        
+        const jQuery = (window as any).jQuery;
 
-                    if (target.style.display !== 'none') {
-                        if (target.id === 'mce-success-response') {
-                            toast.success('Obrigado! Sua indicação foi enviada com sucesso.');
-                        } else {
-                            toast.error('Ocorreu um erro. Verifique o e-mail e tente novamente.');
-                        }
-                        target.style.display = 'none';
+        if (!jQuery) {
+            toast.error('Ocorreu um erro. Por favor, recarregue a página e tente novamente.');
+            return;
+        }
+
+        jQuery.ajax({
+            url: url,
+            data: jQuery(form).serialize(),
+            dataType: 'jsonp',
+            jsonp: 'c',
+            success: (response: any) => {
+                if (response.result === 'success') {
+                    toast.success('Obrigado! Sua indicação foi enviada com sucesso.');
+                    form.reset();
+                } else {
+                    console.error("Mailchimp Error:", response);
+                    let message = response.msg || 'Ocorreu um erro, por favor tente novamente mais tarde.';
+                    if (message.includes('is already subscribed')) {
+                        message = 'Este e-mail já foi indicado. Obrigado!';
+                    } else if (message.includes('invalid email') || message.includes('Please enter a valid email address')) {
+                        message = 'O e-mail fornecido é inválido. Por favor, verifique.';
+                    } else if (response.result === 'error') {
+                        message = 'Ocorreu um erro. Verifique os dados e tente novamente.';
                     }
+                    toast.error(message);
                 }
             }
         });
-
-        if (mcSuccessNode && mcErrorNode) {
-            observer.observe(mcSuccessNode, { attributes: true });
-            observer.observe(mcErrorNode, { attributes: true });
-        }
-
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
+    };
 
     return (
         <>
             <Toaster position="top-center" />
-            <section className="flex min-h-screen bg-background px-4 py-16 md:py-32 dark:bg-transparent" id="mc_embed_shell">
-                <div id="mc_embed_signup" className='m-auto h-fit w-full max-w-sm overflow-hidden'>
+            <section className="flex min-h-screen bg-background px-4 py-16 md:py-32 dark:bg-transparent">
+                <div className='m-auto h-fit w-full max-w-sm overflow-hidden'>
                     <form
                         action="https://fomenta.us11.list-manage.com/subscribe/post?u=e260e90b7fa41e58731c3c83b&amp;id=428941b513&amp;f_id=008f4de1f0"
                         method="post"
-                        id="mc-embedded-subscribe-form"
-                        name="mc-embedded-subscribe-form"
-                        className="validate bg-muted m-auto h-fit w-full max-w-sm overflow-hidden rounded-[calc(var(--radius)+.125rem)] border shadow-md shadow-zinc-950/5 dark:[--color-muted:var(--color-zinc-900)]"
+                        onSubmit={handleSubmit}
+                        className="bg-muted m-auto h-fit w-full max-w-sm overflow-hidden rounded-[calc(var(--radius)+.125rem)] border shadow-md shadow-zinc-950/5 dark:[--color-muted:var(--color-zinc-900)]"
                     >
-                        <div id="mc_embed_signup_scroll" className="bg-card -m-px rounded-[calc(var(--radius)+.125rem)] border p-8 pb-6">
+                        <div className="bg-card -m-px rounded-[calc(var(--radius)+.125rem)] border p-8 pb-6">
                             <div>
                                 <Link
                                     href="/"
@@ -85,7 +92,6 @@ export default function Indicacao() {
                                         name="EMAIL"
                                         id="mce-EMAIL"
                                         placeholder="name@example.com"
-                                        className="required email"
                                     />
                                 </div>
 
@@ -95,11 +101,6 @@ export default function Indicacao() {
                                         name="tags"
                                         value="8115386"
                                     />
-                                </div>
-
-                                <div id="mce-responses" className="clear foot">
-                                    <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
-                                    <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
                                 </div>
 
                                 <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px' }}>
@@ -132,32 +133,6 @@ export default function Indicacao() {
                 src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
                 strategy="afterInteractive"
             />
-            <Script
-                id="mc-validate"
-                src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
-                strategy="lazyOnload"
-            />
-            <Script id="mc-inline-script" strategy="lazyOnload">
-                {`
-                    (function($) {
-                        window.fnames = new Array();
-                        window.ftypes = new Array();
-                        fnames[0]='EMAIL';
-                        ftypes[0]='email';
-                        fnames[1]='FNAME';
-                        ftypes[1]='text';
-                        fnames[2]='LNAME';
-                        ftypes[2]='text';
-                        fnames[3]='RAMO';
-                        ftypes[3]='radio';
-                        fnames[4]='AREA';
-                        ftypes[4]='dropdown';
-                        fnames[5]='IES';
-                        ftypes[5]='text';
-                    }(jQuery));
-                    var $mcj = jQuery.noConflict(true);
-                `}
-            </Script>
         </>
     )
 }
