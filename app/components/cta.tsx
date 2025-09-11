@@ -22,7 +22,7 @@ export default function CallToAction() {
                             asChild
                             size="lg"
                             variant="outline">
-                            <Link href="/">
+                            <Link href="/indicacao">
                                 <span>Recomendar</span>
                             </Link>
                         </Button>
