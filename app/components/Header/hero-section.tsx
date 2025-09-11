@@ -109,7 +109,7 @@ export default function HeroSection() {
                                             asChild
                                             size="lg"
                                             className="rounded-xl px-5 text-base">
-                                            <Link href="#link">
+                                            <Link href="/cadastro">
                                                 <span className="text-nowrap">Quero fazer parte!</span>
                                             </Link>
                                         </Button>

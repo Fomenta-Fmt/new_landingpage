@@ -88,7 +88,7 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled && 'lg:inline-flex')}>
-                                    <Link href="#">
+                                    <Link href="/cadastro">
                                         <span>Cadastrar-se</span>
                                     </Link>
                                 </Button>
