@@ -13,7 +13,7 @@ export default function CallToAction() {
                         <Button
                             asChild
                             size="lg">
-                            <Link href="/">
+                            <Link href="/cadastro">
                                 <span>Quero fazer parte!</span>
                             </Link>
                         </Button>
