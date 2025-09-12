@@ -6,6 +6,7 @@ import { AnimatedGroup } from '@/app/ui/animated-group'
 import { HeroHeader } from './header'
 import HeroBg from '@/app/ui/hero-background'
 
+
 const transitionVariants = {
     item: {
         hidden: {
