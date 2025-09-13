@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "pnpm next-on-pages",
+    "build": "next build --turbopack",
+    "pages:build": "pnpm next-on-pages",
     "start": "next start"
   },
   "dependencies": {
