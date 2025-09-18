@@ -60,7 +60,7 @@ export default function HeroSection() {
                                     delay={0.5}
                                     as="p"
                                     className="mx-auto mt-8 max-w-3xl text-balance text-lg">
-                                    Ajudamos pesquisadores a encontrarem oportunidades de financiamento para os seus projetos, e as Universidades aumentarem as produções científicas
+                                    Unimos ciência e tecnologia para facilitar a jornada do pesquisador. Nossa plataforma impulsiona descobertas e fortalece a produção científica com recomendações inteligentes
                                 </TextEffect>
 
                                 <AnimatedGroup
